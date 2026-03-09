@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This page is the shortest proof set for judges and collaborators.
+This page is the shortest proof set for builders, operators, and collaborators.
 It records the live payment and analysis runs that demonstrate Treasury Guard is not a mock-only project.
 
 For the machine-readable ledger, see:

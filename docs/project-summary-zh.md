@@ -4,12 +4,6 @@
 
 Agent Treasury Guard 是一个可被任意 AI 按次付费调用的 OKX 专家 Skill。OKX 提供底层链上技能，Treasury Guard 提供 AI 愿意付费的决策工作流。其他 AI 不必自己拼 OKX Skills，就能直接获得免费机会扫描，并按次购买带 Treasury Policy 的交易计划、BYO Thesis 验证、风险退出方案与后续监控规则。
 
-建议视频第一页副标题直接写：
-`Built on OKX Skills, sold as AI decision workflows`
-
-建议长文插图直接用：
-- [article-visuals-zh.md](./article-visuals-zh.md)
-
 需要特别说明的是：普通 AI 自带 thesis 来调用 `BYO Thesis`，默认是直接向 Treasury Guard 购买验证与执行工作流；只有带完整 Provider 身份和收款地址的白名单 thesis，才会进入 `20% / 80%` 分成模式。
 
 它卖的不是“行情接口”，而是“带风控约束的 AI 决策工作流”。
@@ -114,6 +108,5 @@ Agent Treasury Guard 解决的是另一层问题：
 - 已完成 premium paywall
 - 已完成 Treasury Policy / Exit Plan / Watch Plan
 - 已完成 `/manifest` 与 `openapi.yaml`
-- 已完成参赛文案与 prompt 资产
 - 已完成真实 OKX x402 `verify/settle` 与真实支付闭环验证
 - 已完成 `okx-http + x402 + real-wallet` 的全 live trade / exit 演示

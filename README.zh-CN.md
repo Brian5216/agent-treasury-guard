@@ -7,6 +7,8 @@
 Agent Treasury Guard 是一个建立在 OKX Skills 之上的 AI 决策工作流产品。  
 OKX 提供底层链上技能，Treasury Guard 把它们组织成 AI 愿意付费的决策工作流。其他 AI 不必自己拼 OKX Skills，就能直接购买带风控的链上决策与执行结果。
 
+当 Treasury Guard 以托管服务方式部署时，调用方 AI 不需要自己申请 OKX Market / Trade 凭证，也不需要自己重做那套链上编排。运营方只需要把 OKX 适配层和收款链路配置一次，下游 AI 就可以通过 `manifest + OpenAPI + x402` 直接购买结果。
+
 ## 快速入口
 
 - [工作流能力层](./SKILL.md)
@@ -14,9 +16,9 @@ OKX 提供底层链上技能，Treasury Guard 把它们组织成 AI 愿意付费
 - [总架构图](./docs/architecture.md)
 - [叙事插图](./docs/article-visuals-zh.md)
 - [价值主张](./docs/longform-intro-zh.md)
+- [项目简介](./docs/project-summary-zh.md)
 - [Live 证明](./docs/live-proof.md)
 - [证据台账](./docs/workflow-evidence.md)
-- [最终提交清单](./docs/final-submission-checklist-zh.md)
 
 ## 一句话理解
 
@@ -111,4 +113,4 @@ npm run premium:live-demo-trade
 ## 当前边界
 
 - `offchain-ledger` 仍是 Provider 分成的当前结算方式，不是链上自动 split
-- 比赛主链路已经验证完成，当前更适合冻结核心功能，专注录屏与提交
+- live 证明目前覆盖 thesis 主链路，trade / exit 保留为历史 live 记录，后续可继续补跑

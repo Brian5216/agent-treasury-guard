@@ -24,7 +24,7 @@ This skill is designed to sit one layer above the official OKX skills. Its job i
 - Premium buyer client: `src/client.js`
 - In-process x402 demo: `src/demo.js`
 - OpenAPI contract: `openapi.yaml`
-- Demo and submission notes: `docs/`
+- Product and integration docs: `docs/`
 - Buyer/provider prompts: `prompts/`
 - Mock demo fixtures: `data/mock/`
 - Tests: `test/planner.test.js`
@@ -33,7 +33,7 @@ This skill is designed to sit one layer above the official OKX skills. Its job i
 1. `mock` mode
 - Default.
 - Uses fixture data in `data/mock/`.
-- Best for local demo videos, screenshots, and regression tests.
+- Best for local previews and regression tests.
 
 2. `onchainos-cli` mode
 - Uses the official `onchainos` CLI if it is already installed.
@@ -42,7 +42,7 @@ This skill is designed to sit one layer above the official OKX skills. Its job i
 3. `mock-x402` payment mode
 - Default payment mode.
 - Issues deterministic invoices and accepts deterministic payment payloads.
-- Best for hackathon demos and screenshots.
+- Best for deterministic demos and interface previews.
 
 4. `okx-api` payment mode
 - Calls the live OKX x402 API.

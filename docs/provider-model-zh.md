@@ -57,10 +57,10 @@ Treasury Guard 采用 `House + Provider + Guard` 三层结构：
 - 外部 Provider 通过 `BYO Thesis` 接入
 - 最终是否允许执行，永远由 Treasury Guard 决定
 
-## 比赛里怎么讲
+## 对外表达
 
 不要把它讲成“策略市场已经完全上线”。  
-更好的讲法是：
+更好的对外表达是：
 
 `Treasury Guard ships with house research, accepts external theses, and monetizes approved provider workflows with a 20% platform take rate.`
 

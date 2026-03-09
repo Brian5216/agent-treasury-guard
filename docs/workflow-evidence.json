@@ -77,8 +77,7 @@
       ],
       "sourceFiles": [
         "./docs/live-proof.md",
-        "./docs/project-summary-zh.md",
-        "./docs/form-answers-zh.md"
+        "./docs/project-summary-zh.md"
       ]
     },
     {
@@ -98,8 +97,7 @@
       ],
       "sourceFiles": [
         "./docs/live-proof.md",
-        "./docs/project-summary-zh.md",
-        "./docs/form-answers-zh.md"
+        "./docs/project-summary-zh.md"
       ]
     }
   ]

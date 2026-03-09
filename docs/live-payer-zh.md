@@ -59,7 +59,7 @@ Treasury Guard 会把以下 JSON 通过 `stdin` 传给外部 signer：
 
 ### 方案 A：本地钱包签名脚本
 
-最适合比赛 demo。
+最适合快速完成本地真支付验证。
 
 - 用一个本地 Node 脚本读取 invoice
 - 调你自己的钱包私钥或钱包 SDK
@@ -67,7 +67,7 @@ Treasury Guard 会把以下 JSON 通过 `stdin` 传给外部 signer：
 
 优点：
 - 集成最快
-- 最适合录屏
+- 最适合快速跑通闭环
 
 缺点：
 - 私钥管理要谨慎
@@ -127,9 +127,9 @@ export OKX_API_PASSPHRASE=...
 npm run premium:real-payment-exit-smoke
 ```
 
-## 比赛阶段建议
+## 推荐落地顺序
 
-如果目标是快速录出 live demo，最稳的做法还是：
+如果目标是先把真实支付闭环稳定跑通，最稳的做法是：
 
 1. 优先用仓库内置 `real-wallet` payer 跑通真支付
 2. 录完视频后，如果你还想展示更强的 A2A 架构，再把 buyer 侧替换成 `command` 模式

@@ -12,12 +12,14 @@ Quick links:
 - [Architecture](./docs/architecture.md)
 - [Narrative Visuals (ZH)](./docs/article-visuals-zh.md)
 - [Value Narrative (ZH)](./docs/longform-intro-zh.md)
+- [Project Summary (ZH)](./docs/project-summary-zh.md)
 - [Live Proof](./docs/live-proof.md)
 - [Evidence Ledger](./docs/workflow-evidence.md)
-- [Submission Checklist (ZH)](./docs/final-submission-checklist-zh.md)
 
 Agent Treasury Guard is a local-first OKX OnchainOS skill package built on top of OKX Skills.
 OKX provides the base onchain skills, and Treasury Guard packages them into paid AI decision workflows that other AIs can call directly.
+
+When Treasury Guard is deployed as a hosted service, caller AIs do not need their own OKX Market/Trade credentials to consume these workflows. The operator sets up the OKX adapters and merchant rails once, then downstream AIs buy guarded results through `manifest + OpenAPI + x402` instead of repeating the whole integration stack themselves.
 
 The product structure is explicit:
 
@@ -29,7 +31,7 @@ Treasury Guard is not trying to replace stronger reasoning models. It is the exe
 
 The package ships with two adapters:
 
-- `mock`: default, deterministic demo mode with fixture data for hackathon videos and tests.
+- `mock`: default, deterministic local mode with fixture data for previews and tests.
 - `onchainos-cli`: live mode that shells out to the official `onchainos` CLI and reuses the OKX skills stack.
 - `okx-http`: live mode that calls the official OKX Market + Trade HTTP APIs directly with your OKX credentials.
 
@@ -72,7 +74,7 @@ npm run preflight
 4. Resend with `X-PAYMENT`
 5. Receive the unlocked expert result
 
-Before recording or submitting, run:
+Before a public demo or a live validation run, execute:
 
 ```bash
 npm run preflight
@@ -300,7 +302,7 @@ npm run premium:real-payment-trade-smoke
 npm run premium:real-payment-exit-smoke
 ```
 
-For a concise, recording-friendly all-live summary, use:
+For a concise all-live summary, use:
 
 ```bash
 npm run premium:live-demo-trade
@@ -362,12 +364,9 @@ The repository now includes both a read-only live smoke (`premium:live-smoke`) a
 
 - OpenAPI contract: [openapi.yaml](./openapi.yaml)
 - Service architecture: [architecture.md](./docs/architecture.md)
-- Hackathon talking points and demo outline: [hackathon-kit.md](./docs/hackathon-kit.md)
 - Chinese project summary: [project-summary-zh.md](./docs/project-summary-zh.md)
-- Chinese demo script: [demo-script-zh.md](./docs/demo-script-zh.md)
-- Chinese X post draft: [x-post-zh.md](./docs/x-post-zh.md)
-- Chinese form answers: [form-answers-zh.md](./docs/form-answers-zh.md)
-- Chinese prompt sheet: [prompts-zh.md](./docs/prompts-zh.md)
+- Chinese provider integration: [provider-integration-zh.md](./docs/provider-integration-zh.md)
+- Chinese provider model: [provider-model-zh.md](./docs/provider-model-zh.md)
 - Provider prompt: [provider-system.md](./prompts/provider-system.md)
 - Buyer prompt: [buyer-system.md](./prompts/buyer-system.md)
 
