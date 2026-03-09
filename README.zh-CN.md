@@ -8,6 +8,8 @@
 
 **Built on OKX Skills, sold as AI decision workflows**
 
+X / Twitter：[@FZXX5216](https://x.com/FZXX5216)
+
 Agent Treasury Guard 是一个建立在 OKX Skills 之上的 AI 决策工作流产品。  
 OKX 提供底层链上技能，Treasury Guard 把它们组织成 AI 愿意付费的决策工作流。其他 AI 不必自己拼 OKX Skills，就能直接购买带风控的链上决策与执行结果。
 
@@ -31,6 +33,7 @@ flowchart LR
 - [项目简介](./docs/project-summary-zh.md)
 - [Live 证明](./docs/live-proof.md)
 - [证据台账](./docs/workflow-evidence.md)
+- [X / Twitter](https://x.com/FZXX5216)
 
 ## 一句话理解
 

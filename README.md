@@ -8,6 +8,8 @@
 
 Built on OKX Skills, sold as AI decision workflows.
 
+Creator on X: [@FZXX5216](https://x.com/FZXX5216)
+
 Quick links:
 
 - [Chinese README](./README.zh-CN.md)
@@ -19,6 +21,7 @@ Quick links:
 - [Project Summary (ZH)](./docs/project-summary-zh.md)
 - [Live Proof](./docs/live-proof.md)
 - [Evidence Ledger](./docs/workflow-evidence.md)
+- [X / Twitter](https://x.com/FZXX5216)
 
 Agent Treasury Guard is a local-first OKX OnchainOS skill package built on top of OKX Skills.
 OKX provides the base onchain skills, and Treasury Guard packages them into paid AI decision workflows that other AIs can call directly.
