@@ -45,6 +45,90 @@ OKX Skills 已经让其他 AI 可以直接使用 `token / market / quote / gatew
 
 Treasury Guard 解决的是这一层问题：把底层链上技能升级成可直接购买的决策工作流。
 
+## 为什么它具备可复制性
+
+Treasury Guard 的可复制性分成两层：
+
+- 调用方复用：其他 AI 通过 `GET /manifest`、`openapi.yaml` 和标准 `402 -> X-PAYMENT -> 解锁` 流程，直接消费高阶工作流
+- 运营方复用：团队把 OKX 适配层、支付链路和 merchant 配置一次，然后让多个下游 AI 复用同一套控制层
+
+这就是我们真正的复制逻辑：
+
+- OKX Skills 负责底层能力
+- Treasury Guard 负责工作流层
+- 调用方 AI 复用工作流，不再重复建设整套 OKX 接入和风控编排
+
+## 调用方与运营方的边界
+
+### 对调用方 AI
+
+调用方 AI 不需要自己：
+
+- 申请 OKX Market / Trade 凭证
+- 把 `token / market / quote / gateway` 拼成完整流程
+- 重做 Treasury Policy
+- 自己设计 entry / exit / watch
+- 自己实现 x402 的 verify / settle 处理
+
+调用方只需要：
+
+- 一个 Treasury Guard 服务地址
+- `GET /manifest`
+- `openapi.yaml`
+- 能遵循标准 `402 -> X-PAYMENT -> 解锁` 流程
+
+### 对运营方
+
+运营方仍然需要做一次性配置：
+
+- 选择分析适配层：`mock`、`onchainos-cli` 或 `okx-http`
+- 配置 merchant 和 x402 支付参数
+- 视情况接入 `real-wallet` 或外部 signer
+- 决定是否启用白名单 Provider 的 `20% / 80%` 分成
+
+所以 Treasury Guard 不是消灭全部配置，而是把配置收敛到服务层，避免每个调用方都重复做一遍。
+
+## 最小接入示例
+
+最小的调用流程只有 5 步：
+
+1. 发现服务
+2. 请求 premium workflow
+3. 收到 `402 Payment Required`
+4. 附带 `X-PAYMENT` 重试
+5. 取回解锁后的结构化结果
+
+发现服务：
+
+```bash
+curl http://127.0.0.1:8788/manifest
+```
+
+请求 thesis plan：
+
+```bash
+curl -X POST http://127.0.0.1:8788/premium/thesis-plan \
+  -H "content-type: application/json" \
+  -d '{
+    "symbol": "BRETT",
+    "chain": "base",
+    "side": "buy",
+    "budgetUsd": 1000,
+    "riskProfile": "balanced",
+    "thesis": "Momentum and whale support still justify a guarded entry.",
+    "thesisSource": "external-ai"
+  }'
+```
+
+如果没有附带支付头，服务会先返回 `402` 和 `paymentRequirements`。  
+调用方完成签名并附带 `X-PAYMENT` 重试后，就能拿到包含以下字段的结果：
+
+- `policy`
+- `decision`
+- `execution`
+- `watch`
+- `machineView`
+
 ## 核心能力
 
 - `Free Opportunity Scan`

@@ -29,6 +29,90 @@ The product structure is explicit:
 
 Treasury Guard is not trying to replace stronger reasoning models. It is the execution and control layer they can call when they want an idea translated into a safe, standard, monetizable onchain workflow.
 
+## Why It Is Reusable
+
+Treasury Guard is reusable in two different ways:
+
+- caller mode: another AI discovers the service through `GET /manifest`, reads the contract from `openapi.yaml`, and buys a guarded workflow through x402
+- operator mode: a team deploys Treasury Guard once, wires in OKX adapters and merchant rails once, then lets many downstream AIs reuse the same control plane
+
+That is the real replication story:
+
+- OKX Skills stay at the primitive layer
+- Treasury Guard stays at the workflow layer
+- caller AIs reuse the workflow without rebuilding the full OKX integration stack each time
+
+## For Callers vs. Operators
+
+### For caller AIs
+
+Caller AIs do not need to:
+
+- apply for their own OKX Market / Trade credentials
+- stitch together `token / market / quote / gateway`
+- re-implement treasury policy checks
+- design entry / exit / watch logic
+- implement x402 payment verification and settlement handling
+
+They only need:
+
+- a Treasury Guard endpoint
+- `GET /manifest`
+- the `openapi.yaml` contract
+- the ability to follow a standard `402 -> X-PAYMENT -> unlock` retry flow
+
+### For operators
+
+Operators still need to configure the service once:
+
+- choose an analysis adapter: `mock`, `onchainos-cli`, or `okx-http`
+- configure merchant and x402 settings
+- optionally enable a real wallet payer or external signer
+- decide whether approved provider workflows should use the 20% / 80% split
+
+So Treasury Guard does not eliminate all setup. It centralizes setup at the service layer so downstream AIs do not repeat it.
+
+## Minimal Integration Example
+
+The smallest caller flow is:
+
+1. discover the service
+2. request a premium workflow
+3. receive `402 Payment Required`
+4. attach `X-PAYMENT`
+5. receive the unlocked result
+
+Discover the service:
+
+```bash
+curl http://127.0.0.1:8788/manifest
+```
+
+Ask for a thesis plan:
+
+```bash
+curl -X POST http://127.0.0.1:8788/premium/thesis-plan \
+  -H "content-type: application/json" \
+  -d '{
+    "symbol": "BRETT",
+    "chain": "base",
+    "side": "buy",
+    "budgetUsd": 1000,
+    "riskProfile": "balanced",
+    "thesis": "Momentum and whale support still justify a guarded entry.",
+    "thesisSource": "external-ai"
+  }'
+```
+
+If no payment is attached, the service returns a `402` plus `paymentRequirements`.
+After the caller signs and retries with `X-PAYMENT`, Treasury Guard returns a structured result with:
+
+- `policy`
+- `decision`
+- `execution`
+- `watch`
+- `machineView`
+
 The package ships with two adapters:
 
 - `mock`: default, deterministic local mode with fixture data for previews and tests.
