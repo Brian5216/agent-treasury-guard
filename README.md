@@ -80,6 +80,13 @@ Operators still need to configure the service once:
 
 So Treasury Guard does not eliminate all setup. It centralizes setup at the service layer so downstream AIs do not repeat it.
 
+## Hosted Mode vs. Self-Hosted Mode
+
+| Mode | Best for | Who configures OKX and x402 | What the caller AI needs | Tradeoff |
+| --- | --- | --- | --- | --- |
+| Hosted Treasury Guard | Teams that want fast reuse across many downstream AIs | The Treasury Guard operator configures adapters, merchant rails, and payment flow once | `manifest`, `openapi.yaml`, and a standard `402 -> X-PAYMENT -> unlock` client flow | Fastest integration, but the caller depends on the hosted service |
+| Self-hosted Treasury Guard | Teams that want full operational control | The deploying team configures adapters, merchant rails, and signer flow in its own environment | Local runtime, env vars, merchant config, and optional signer setup | More control, but more setup and maintenance |
+
 ## Minimal Integration Example
 
 The smallest caller flow is:

@@ -96,6 +96,13 @@ Treasury Guard 的可复制性分成两层：
 
 所以 Treasury Guard 不是消灭全部配置，而是把配置收敛到服务层，避免每个调用方都重复做一遍。
 
+## Hosted Mode 与 Self-Hosted Mode
+
+| 模式 | 适合谁 | 谁来配置 OKX 与 x402 | 调用方 AI 需要什么 | 取舍 |
+| --- | --- | --- | --- | --- |
+| Hosted Treasury Guard | 想快速让多个下游 AI 复用同一套工作流的团队 | Treasury Guard 运营方一次性配置适配层、merchant 和支付链路 | `manifest`、`openapi.yaml`、以及标准 `402 -> X-PAYMENT -> 解锁` 调用流程 | 接入最快，但调用方依赖托管服务 |
+| Self-hosted Treasury Guard | 想自己掌握整套运行环境的团队 | 部署方在自己的环境里配置适配层、merchant 和 signer | 本地运行环境、环境变量、merchant 配置，以及可选 signer 设置 | 控制力更高，但部署和维护成本更高 |
+
 ## 最小接入示例
 
 最小的调用流程只有 5 步：
