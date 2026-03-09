@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Treasury Guard | Evidence Ledger</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell proof-shell">
+      <header class="hero">
+        <a class="back-link" href="./index.html">← 返回展示页</a>
+        <p class="eyebrow">Evidence Ledger</p>
+        <h1>Agent Treasury Guard | 证据台账</h1>
+        <p class="hero-copy">
+          这份台账把 workflow 名称、命令形态、验证层级和 tx hash 绑定在一起。
+          我们只写当前工作区能够支撑的事实，方便读者独立核验。
+        </p>
+        <div class="hero-actions">
+          <a class="primary" href="./workflow-evidence.json">查看 JSON</a>
+          <a class="secondary" href="./proof.html">返回证明页</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Evidence Policy</p>
+            <h2>我们的证据标准</h2>
+          </div>
+          <div class="guide-nav">
+            <div class="guide-card static-card">
+              `rerun-today`
+              <span>今天重新执行过，命令输出和 tx hash 在同一轮里被一起记录下来。</span>
+            </div>
+            <div class="guide-card static-card">
+              `historical-workspace-record`
+              <span>历史 live 记录继续保留在工作区文档里，作为补充证明，不冒充今天刚重跑。</span>
+            </div>
+            <div class="guide-card static-card">
+              边界清楚
+              <span>我们公开 tx 和本地记录之间的对应关系，但不会把浏览器页夸大成完整业务语义。</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Ledger</p>
+            <h2>当前对外引用的四条记录</h2>
+          </div>
+          <div class="proof-grid full-proof-grid">
+            <article class="proof-card proof-card-large">
+              <span class="proof-tag">Direct BYO Thesis</span>
+              <p class="proof-meta">验证层级：rerun-today · 命令：premium:real-payment-thesis-smoke · 资产：USDT</p>
+              <p class="mono mono-link">
+                <a href="https://web3.okx.com/explorer/x-layer/tx/0x3d3e7f34bb235343d12d4194da36dadf71ab86c2822ca746ab22d97ecfbc2f98" target="_blank" rel="noreferrer">
+                  0x3d3e7f34bb235343d12d4194da36dadf71ab86c2822ca746ab22d97ecfbc2f98
+                </a>
+              </p>
+            </article>
+            <article class="proof-card proof-card-large">
+              <span class="proof-tag">Live Provider Thesis 20/80</span>
+              <p class="proof-meta">验证层级：rerun-today · 命令：premium:live-demo-thesis · 资产：USDT · adapter：okx-http</p>
+              <p class="mono mono-link">
+                <a href="https://web3.okx.com/explorer/x-layer/tx/0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0" target="_blank" rel="noreferrer">
+                  0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0
+                </a>
+              </p>
+            </article>
+            <article class="proof-card proof-card-large">
+              <span class="proof-tag">Trade</span>
+              <p class="proof-meta">验证层级：historical-workspace-record · 命令形态：premium:real-payment-trade-smoke</p>
+              <p class="mono mono-link">
+                <a href="https://web3.okx.com/explorer/x-layer/tx/0x79e11af955c5f1cb62187c921b679464a0536d516f724b732281aa30034e33b8" target="_blank" rel="noreferrer">
+                  0x79e11af955c5f1cb62187c921b679464a0536d516f724b732281aa30034e33b8
+                </a>
+              </p>
+            </article>
+            <article class="proof-card proof-card-large">
+              <span class="proof-tag">Exit</span>
+              <p class="proof-meta">验证层级：historical-workspace-record · 命令形态：premium:real-payment-exit-smoke</p>
+              <p class="mono mono-link">
+                <a href="https://web3.okx.com/explorer/x-layer/tx/0x4fb62e16e0625a6c8a448d35a640b4bab7835de6c81863a877d132fa35fa94db" target="_blank" rel="noreferrer">
+                  0x4fb62e16e0625a6c8a448d35a640b4bab7835de6c81863a877d132fa35fa94db
+                </a>
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

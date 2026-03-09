@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Treasury Guard | Product Overview</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Product Overview</p>
+        <h1>Agent Treasury Guard</h1>
+        <p class="hero-copy">
+          OKX 提供底层链上技能，Treasury Guard 提供 AI 愿意付费的决策工作流。
+          其他 AI 不必自己拼 OKX Skills，就能直接购买带风控的链上决策与执行结果。
+        </p>
+        <div class="hero-actions">
+          <a class="primary" href="./a2a-demo.html">查看 A2A 交互</a>
+          <a class="secondary" href="./proof.html">查看真实链路</a>
+          <a class="secondary" href="./guide.html#openapi">查看接入方式</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Product Layer</p>
+            <h2>我们交付的是什么</h2>
+          </div>
+          <div class="signal-grid">
+            <article class="signal-card">
+              <span class="signal-label">OKX Skills</span>
+              <p>token / market / quote / gateway / x402</p>
+            </article>
+            <article class="signal-card hot">
+              <span class="signal-label">Treasury Guard</span>
+              <p>policy / trade / exit / watch / machineView</p>
+            </article>
+            <article class="signal-card">
+              <span class="signal-label">Buyer AI</span>
+              <p>不再自己拼底层技能，直接购买成品决策工作流</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Architecture</p>
+            <h2>总架构图</h2>
+          </div>
+          <div class="flow-rail">
+            <div class="flow-card">
+              <strong>Buyer AI</strong>
+              <span>通用 AI / 调用方 Agent</span>
+            </div>
+            <div class="flow-arrow">
+              <span>premium request / thesis</span>
+            </div>
+            <div class="flow-card emphasis">
+              <strong>Treasury Guard</strong>
+              <span>决策工作流层</span>
+            </div>
+            <div class="flow-arrow dual">
+              <span>OKX Skills + x402</span>
+            </div>
+            <div class="flow-stack">
+              <div class="flow-card compact">
+                <strong>OKX Skills</strong>
+                <span>token / market / quote / gateway</span>
+              </div>
+              <div class="flow-card compact dark">
+                <strong>OKX x402</strong>
+                <span>402 / verify / settle</span>
+              </div>
+            </div>
+            <div class="flow-arrow">
+              <span>guarded result</span>
+            </div>
+            <div class="flow-card">
+              <strong>Result</strong>
+              <span>policy / trade / exit / watch / machineView</span>
+            </div>
+          </div>
+          <p class="section-note">
+            Treasury Guard 不替代 OKX Skills，而是站在它们之上，把底层链上技能封装成 AI
+            可直接购买的决策工作流。
+          </p>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Comparison</p>
+            <h2>为什么不直接拼 OKX Skills</h2>
+          </div>
+          <div class="compare-grid">
+            <article class="compare-card">
+              <p class="compare-title">直接拼 OKX Skills</p>
+              <ul>
+                <li>token：找币</li>
+                <li>market：看行情</li>
+                <li>quote：拿报价</li>
+                <li>gateway：查订单</li>
+              </ul>
+              <div class="compare-outcome">
+                <strong>结果</strong>
+                <span>需要自己编排，自己补风控</span>
+              </div>
+            </article>
+            <article class="compare-card accent">
+              <p class="compare-title">购买 Treasury Guard</p>
+              <ul>
+                <li>policy：该不该做</li>
+                <li>trade：怎么入场</li>
+                <li>exit：怎么退场</li>
+                <li>watch：后续怎么盯</li>
+              </ul>
+              <div class="compare-outcome">
+                <strong>结果</strong>
+                <span>直接拿决策结果，直接按次购买</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Live Proof</p>
+            <h2>当前已验证的真实链路</h2>
+          </div>
+          <div class="proof-grid">
+            <article class="proof-card">
+              <span class="proof-tag">Direct BYO Thesis</span>
+              <p class="proof-value">0x3d3e7f3...bc2f98</p>
+              <p class="proof-copy">今天重新跑过的普通 thesis 直购，不走 provider split。</p>
+            </article>
+            <article class="proof-card">
+              <span class="proof-tag">Live Provider Thesis 20/80</span>
+              <p class="proof-value">0x06c9591...bf7be0</p>
+              <p class="proof-copy">今天重新跑过的白名单 Provider thesis，覆盖 20% / 80% 与 live OKX analysis。</p>
+            </article>
+            <article class="proof-card">
+              <span class="proof-tag">Trade</span>
+              <p class="proof-value">0x79e11af...4e33b8</p>
+              <p class="proof-copy">历史 live 记录：买入 workflow 已完成真实结算。</p>
+            </article>
+            <article class="proof-card">
+              <span class="proof-tag">Exit</span>
+              <p class="proof-value">0x4fb62e1...fa94db</p>
+              <p class="proof-copy">历史 live 记录：退出 workflow 已完成真实结算。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Integration</p>
+            <h2>接入与验证</h2>
+          </div>
+          <div class="command-grid">
+            <article class="command-card">
+              <p class="command-title">Manifest</p>
+              <code>GET /manifest</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">OpenAPI</p>
+              <code>openapi.yaml</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">Skill Contract</p>
+              <code>SKILL.md</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">本地预检</p>
+              <code>npm run preflight</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">Thesis Live</p>
+              <code>npm run premium:live-demo-thesis</code>
+            </article>
+            <article class="command-card">
+              <p class="command-title">Trade Live</p>
+              <code>npm run premium:live-demo-trade</code>
+            </article>
+          </div>
+        </section>
+
+        <section class="section links-section">
+          <div class="section-head">
+            <p class="section-kicker">Resources</p>
+            <h2>资料入口</h2>
+          </div>
+          <div class="link-list">
+            <a href="./guide.html#positioning">产品定义</a>
+            <a href="./guide.html#readme-en">English Overview</a>
+            <a href="./guide.html#skill">Skill 能力</a>
+            <a href="./guide.html#openapi">接口与接入</a>
+            <a href="./workflow-evidence.html">证据台账</a>
+            <a href="./guide.html#visuals">叙事结构</a>
+            <a href="./guide.html#longform">价值主张</a>
+            <a href="./proof.html">真实链路证明</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

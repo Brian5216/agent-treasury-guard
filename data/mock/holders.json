@@ -1,0 +1,85 @@
+[
+  {
+    "chain": "base",
+    "tokenContractAddress": "0x1111111111111111111111111111111111111111",
+    "top10HolderPercent": "18.2",
+    "top20HolderPercent": "24.9",
+    "whaleBuy1HUsd": "210000",
+    "whaleSell1HUsd": "14000",
+    "lockScore": "84",
+    "contractRiskFlags": []
+  },
+  {
+    "chain": "solana",
+    "tokenContractAddress": "DezXAZ8z7PnrnRJjz3wXBoRGAB8J3y3Q4hfhP2A4bonk",
+    "top10HolderPercent": "14.9",
+    "top20HolderPercent": "22.2",
+    "whaleBuy1HUsd": "390000",
+    "whaleSell1HUsd": "80000",
+    "lockScore": "80",
+    "contractRiskFlags": []
+  },
+  {
+    "chain": "ethereum",
+    "tokenContractAddress": "0x2222222222222222222222222222222222222222",
+    "top10HolderPercent": "43.8",
+    "top20HolderPercent": "58.4",
+    "whaleBuy1HUsd": "68000",
+    "whaleSell1HUsd": "390000",
+    "lockScore": "61",
+    "contractRiskFlags": [
+      "holder concentration",
+      "elevated sell pressure"
+    ]
+  },
+  {
+    "chain": "xlayer",
+    "tokenContractAddress": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "top10HolderPercent": "11.6",
+    "top20HolderPercent": "17.8",
+    "whaleBuy1HUsd": "122000",
+    "whaleSell1HUsd": "34000",
+    "lockScore": "90",
+    "contractRiskFlags": []
+  },
+  {
+    "chain": "base",
+    "tokenContractAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "top10HolderPercent": "8.2",
+    "top20HolderPercent": "14.4",
+    "whaleBuy1HUsd": "0",
+    "whaleSell1HUsd": "0",
+    "lockScore": "99",
+    "contractRiskFlags": []
+  },
+  {
+    "chain": "xlayer",
+    "tokenContractAddress": "0x74b7f16337b8972027f6196a17a631ac6de26d22",
+    "top10HolderPercent": "6.4",
+    "top20HolderPercent": "10.9",
+    "whaleBuy1HUsd": "0",
+    "whaleSell1HUsd": "0",
+    "lockScore": "99",
+    "contractRiskFlags": []
+  },
+  {
+    "chain": "ethereum",
+    "tokenContractAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "top10HolderPercent": "4.1",
+    "top20HolderPercent": "8.3",
+    "whaleBuy1HUsd": "0",
+    "whaleSell1HUsd": "0",
+    "lockScore": "99",
+    "contractRiskFlags": []
+  },
+  {
+    "chain": "solana",
+    "tokenContractAddress": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "top10HolderPercent": "5.7",
+    "top20HolderPercent": "9.8",
+    "whaleBuy1HUsd": "0",
+    "whaleSell1HUsd": "0",
+    "lockScore": "99",
+    "contractRiskFlags": []
+  }
+]

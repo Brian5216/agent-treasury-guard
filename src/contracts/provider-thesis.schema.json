@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://treasury-guard.local/schemas/provider-thesis.schema.json",
+  "title": "Treasury Guard Provider Thesis Submission",
+  "description": "Minimal external-provider payload for /premium/thesis-plan.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "providerId",
+    "providerName",
+    "providerPayoutAddress",
+    "chain",
+    "side",
+    "budgetUsd",
+    "thesis"
+  ],
+  "properties": {
+    "providerId": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 64,
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "description": "Stable provider identifier assigned by Treasury Guard."
+    },
+    "providerName": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 80,
+      "description": "Human-readable provider display name."
+    },
+    "providerKind": {
+      "type": "string",
+      "const": "external",
+      "default": "external",
+      "description": "External provider payloads should always use external."
+    },
+    "providerPayoutAddress": {
+      "type": "string",
+      "pattern": "^0x[a-fA-F0-9]{40}$",
+      "description": "Address used for provider ledger settlement."
+    },
+    "providerUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional profile or homepage URL."
+    },
+    "symbol": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "description": "Ticker symbol. Provide either symbol or address."
+    },
+    "address": {
+      "type": "string",
+      "pattern": "^0x[a-fA-F0-9]{40}$",
+      "description": "Token contract address. Provide either address or symbol."
+    },
+    "chain": {
+      "type": "string",
+      "enum": [
+        "xlayer",
+        "base",
+        "ethereum",
+        "solana"
+      ]
+    },
+    "side": {
+      "type": "string",
+      "enum": [
+        "buy",
+        "sell"
+      ]
+    },
+    "budgetUsd": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "riskProfile": {
+      "type": "string",
+      "enum": [
+        "cautious",
+        "balanced",
+        "aggressive"
+      ],
+      "default": "balanced"
+    },
+    "stable": {
+      "type": "string",
+      "default": "USDC"
+    },
+    "walletAddress": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional target wallet for later execution."
+    },
+    "thesis": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 1200,
+      "description": "Main thesis summary from the provider."
+    },
+    "thesisSource": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 80,
+      "default": "external-ai"
+    },
+    "thesisConfidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "thesisBullets": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        }
+      ],
+      "description": "Optional supporting bullet points."
+    }
+  },
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "required": [
+            "symbol"
+          ]
+        },
+        {
+          "required": [
+            "address"
+          ]
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "providerId": "provider-brett",
+      "providerName": "Brett Signal AI",
+      "providerKind": "external",
+      "providerPayoutAddress": "0xd5677a880f08f7e6ff31d6bfaf5edc8b05d95ad4",
+      "symbol": "BRETT",
+      "chain": "base",
+      "side": "buy",
+      "budgetUsd": 1000,
+      "riskProfile": "balanced",
+      "stable": "USDC",
+      "thesis": "Whale support and routing quality still justify a guarded entry.",
+      "thesisSource": "external-ai",
+      "thesisConfidence": 76,
+      "thesisBullets": [
+        "1h momentum is still positive.",
+        "Route quality remains acceptable."
+      ]
+    }
+  ]
+}

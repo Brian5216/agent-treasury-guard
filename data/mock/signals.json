@@ -1,0 +1,78 @@
+[
+  {
+    "timestamp": "1773055200000",
+    "chain": "base",
+    "chainIndex": "8453",
+    "price": "0.165",
+    "walletType": "SMART_MONEY",
+    "triggerWalletCount": "7",
+    "triggerWalletAddress": "0xaaa...,0xbbb...,0xccc...",
+    "amountUsd": "330000",
+    "soldRatioPercent": "12.5",
+    "token": {
+      "tokenAddress": "0x1111111111111111111111111111111111111111",
+      "symbol": "BRETT",
+      "name": "Brett",
+      "marketCapUsd": "1660000000",
+      "holders": "192230",
+      "top10HolderPercent": "18.2"
+    }
+  },
+  {
+    "timestamp": "1773055500000",
+    "chain": "solana",
+    "chainIndex": "501",
+    "price": "0.000031",
+    "walletType": "WHALE",
+    "triggerWalletCount": "5",
+    "triggerWalletAddress": "5kk...,7tt...,9pp...",
+    "amountUsd": "420000",
+    "soldRatioPercent": "8.4",
+    "token": {
+      "tokenAddress": "DezXAZ8z7PnrnRJjz3wXBoRGAB8J3y3Q4hfhP2A4bonk",
+      "symbol": "BONK",
+      "name": "Bonk",
+      "marketCapUsd": "2450000000",
+      "holders": "732540",
+      "top10HolderPercent": "14.9"
+    }
+  },
+  {
+    "timestamp": "1773055800000",
+    "chain": "ethereum",
+    "chainIndex": "1",
+    "price": "0.0000106",
+    "walletType": "INFLUENCER",
+    "triggerWalletCount": "3",
+    "triggerWalletAddress": "0xddd...,0xeee...,0xfff...",
+    "amountUsd": "88000",
+    "soldRatioPercent": "41.0",
+    "token": {
+      "tokenAddress": "0x2222222222222222222222222222222222222222",
+      "symbol": "PEPE",
+      "name": "Pepe",
+      "marketCapUsd": "4370000000",
+      "holders": "374120",
+      "top10HolderPercent": "43.8"
+    }
+  },
+  {
+    "timestamp": "1773056100000",
+    "chain": "xlayer",
+    "chainIndex": "196",
+    "price": "48.2",
+    "walletType": "SMART_MONEY",
+    "triggerWalletCount": "4",
+    "triggerWalletAddress": "0x111...,0x222...,0x333...",
+    "amountUsd": "150000",
+    "soldRatioPercent": "9.3",
+    "token": {
+      "tokenAddress": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "symbol": "OKB",
+      "name": "OKB",
+      "marketCapUsd": "2916000000",
+      "holders": "240310",
+      "top10HolderPercent": "11.6"
+    }
+  }
+]

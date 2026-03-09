@@ -1,0 +1,42 @@
+{
+  "asOf": "2026-03-09",
+  "summary": "Browser-facing copy of the Treasury Guard evidence ledger.",
+  "records": [
+    {
+      "title": "Direct BYO Thesis",
+      "verificationLevel": "rerun-today",
+      "txHash": "0x3d3e7f34bb235343d12d4194da36dadf71ab86c2822ca746ab22d97ecfbc2f98",
+      "explorerUrl": "https://web3.okx.com/explorer/x-layer/tx/0x3d3e7f34bb235343d12d4194da36dadf71ab86c2822ca746ab22d97ecfbc2f98",
+      "command": "npm run premium:real-payment-thesis-smoke",
+      "selectedAsset": "USDT",
+      "note": "Re-run on March 9, 2026."
+    },
+    {
+      "title": "Live Provider Thesis 20/80",
+      "verificationLevel": "rerun-today",
+      "txHash": "0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0",
+      "explorerUrl": "https://web3.okx.com/explorer/x-layer/tx/0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0",
+      "command": "npm run premium:live-demo-thesis",
+      "selectedAsset": "USDT",
+      "note": "Re-run on March 9, 2026 with okx-http and provider split."
+    },
+    {
+      "title": "Trade",
+      "verificationLevel": "historical-workspace-record",
+      "txHash": "0x79e11af955c5f1cb62187c921b679464a0536d516f724b732281aa30034e33b8",
+      "explorerUrl": "https://web3.okx.com/explorer/x-layer/tx/0x79e11af955c5f1cb62187c921b679464a0536d516f724b732281aa30034e33b8",
+      "command": "npm run premium:real-payment-trade-smoke",
+      "selectedAsset": null,
+      "note": "Historical live record preserved in workspace docs."
+    },
+    {
+      "title": "Exit",
+      "verificationLevel": "historical-workspace-record",
+      "txHash": "0x4fb62e16e0625a6c8a448d35a640b4bab7835de6c81863a877d132fa35fa94db",
+      "explorerUrl": "https://web3.okx.com/explorer/x-layer/tx/0x4fb62e16e0625a6c8a448d35a640b4bab7835de6c81863a877d132fa35fa94db",
+      "command": "npm run premium:real-payment-exit-smoke",
+      "selectedAsset": null,
+      "note": "Historical live record preserved in workspace docs."
+    }
+  ]
+}

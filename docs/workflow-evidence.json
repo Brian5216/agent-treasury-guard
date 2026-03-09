@@ -1,0 +1,106 @@
+{
+  "asOf": "2026-03-09",
+  "summary": "Treasury Guard evidence ledger for outward-facing proof pages. Each record binds a workflow label to a tx hash, the command shape used to produce it, and the proof boundary we are willing to claim.",
+  "verificationPolicy": {
+    "txExistence": "Confirmed either by the live settle response captured in the workspace or by the official OKX X Layer explorer page.",
+    "workflowBinding": "Bound to a workflow name only when the workspace has a matching local run summary or an explicit ledger entry.",
+    "levels": {
+      "rerun-today": "Re-run on March 9, 2026 during the latest proof pass, with observed command output and tx hash captured together.",
+      "historical-workspace-record": "Previously validated live run preserved in workspace docs; kept as historical supporting evidence until re-run again."
+    }
+  },
+  "records": [
+    {
+      "id": "direct-byo-thesis-rerun-2026-03-09",
+      "title": "Direct BYO Thesis",
+      "verificationLevel": "rerun-today",
+      "dateChecked": "2026-03-09",
+      "txHash": "0x3d3e7f34bb235343d12d4194da36dadf71ab86c2822ca746ab22d97ecfbc2f98",
+      "explorerUrl": "https://web3.okx.com/explorer/x-layer/tx/0x3d3e7f34bb235343d12d4194da36dadf71ab86c2822ca746ab22d97ecfbc2f98",
+      "command": "OKX_API_KEY=*** OKX_SECRET_KEY=*** OKX_API_PASSPHRASE=*** X402_TEST_PRIVATE_KEY=*** TREASURY_GUARD_PAYMENT_ASSET=USDT npm run premium:real-payment-thesis-smoke",
+      "workflow": {
+        "mode": "thesis",
+        "analysisAdapter": "mock",
+        "selectedAsset": "USDT",
+        "providerKind": "caller",
+        "providerName": "external-ai",
+        "platformTakeRateBps": 10000,
+        "providerPayoutBps": 0
+      },
+      "proves": [
+        "Plain BYO thesis purchases do not trigger provider split.",
+        "The real-wallet signer and OKX x402 verify/settle flow still work end to end."
+      ],
+      "sourceFiles": [
+        "./docs/live-proof.md"
+      ]
+    },
+    {
+      "id": "live-provider-thesis-rerun-2026-03-09",
+      "title": "Live Provider Thesis 20/80",
+      "verificationLevel": "rerun-today",
+      "dateChecked": "2026-03-09",
+      "txHash": "0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0",
+      "explorerUrl": "https://web3.okx.com/explorer/x-layer/tx/0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0",
+      "command": "OKX_API_KEY=*** OKX_SECRET_KEY=*** OKX_API_PASSPHRASE=*** X402_TEST_PRIVATE_KEY=*** TREASURY_GUARD_PAYMENT_ASSET=USDT TREASURY_GUARD_LIVE_ANALYSIS_ADAPTER=okx-http TREASURY_GUARD_LIVE_PROVIDER_ID=provider-brett TREASURY_GUARD_LIVE_PROVIDER_NAME='Brett Signal AI' TREASURY_GUARD_LIVE_PROVIDER_KIND=external TREASURY_GUARD_LIVE_PROVIDER_PAYOUT_ADDRESS=0x7047d5BA9ac1Be6f98d4262BE96D5FfFCe21DAA1 npm run premium:live-demo-thesis",
+      "workflow": {
+        "mode": "thesis",
+        "analysisAdapter": "okx-http",
+        "selectedAsset": "USDT",
+        "providerKind": "external",
+        "providerName": "Brett Signal AI",
+        "platformTakeRateBps": 2000,
+        "providerPayoutBps": 8000
+      },
+      "proves": [
+        "The main live thesis demo path is currently working with OKX HTTP analysis, x402 settlement, and a real wallet signer.",
+        "Approved provider metadata still activates the 20% / 80% split mode."
+      ],
+      "sourceFiles": [
+        "./docs/live-proof.md"
+      ]
+    },
+    {
+      "id": "trade-plan-historical",
+      "title": "Trade Plan",
+      "verificationLevel": "historical-workspace-record",
+      "dateChecked": "2026-03-09",
+      "txHash": "0x79e11af955c5f1cb62187c921b679464a0536d516f724b732281aa30034e33b8",
+      "explorerUrl": "https://web3.okx.com/explorer/x-layer/tx/0x79e11af955c5f1cb62187c921b679464a0536d516f724b732281aa30034e33b8",
+      "command": "npm run premium:real-payment-trade-smoke",
+      "workflow": {
+        "mode": "trade"
+      },
+      "proves": [
+        "The premium trade workflow has completed real settlement before.",
+        "Trade is not thesis-only; it has its own live settlement history."
+      ],
+      "sourceFiles": [
+        "./docs/live-proof.md",
+        "./docs/project-summary-zh.md",
+        "./docs/form-answers-zh.md"
+      ]
+    },
+    {
+      "id": "exit-plan-historical",
+      "title": "Exit Plan",
+      "verificationLevel": "historical-workspace-record",
+      "dateChecked": "2026-03-09",
+      "txHash": "0x4fb62e16e0625a6c8a448d35a640b4bab7835de6c81863a877d132fa35fa94db",
+      "explorerUrl": "https://web3.okx.com/explorer/x-layer/tx/0x4fb62e16e0625a6c8a448d35a640b4bab7835de6c81863a877d132fa35fa94db",
+      "command": "npm run premium:real-payment-exit-smoke",
+      "workflow": {
+        "mode": "exit"
+      },
+      "proves": [
+        "The premium exit workflow has completed real settlement before.",
+        "Exit is preserved as a separate historical live record until the next re-run."
+      ],
+      "sourceFiles": [
+        "./docs/live-proof.md",
+        "./docs/project-summary-zh.md",
+        "./docs/form-answers-zh.md"
+      ]
+    }
+  ]
+}

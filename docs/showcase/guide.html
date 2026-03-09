@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Treasury Guard | Product Overview</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell guide-shell">
+      <header class="hero">
+        <a class="back-link" href="./index.html">← 返回展示页</a>
+        <p class="eyebrow">Product Overview</p>
+        <h1>Agent Treasury Guard | 产品总览</h1>
+        <p class="hero-copy">
+          这一页把产品定义、接口层、证据台账和长文入口放到同一层导览里。
+          读者可以顺着这条路径理解我们提供什么、如何接入，以及为什么它值得被调用。
+        </p>
+      </header>
+
+      <main>
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Navigation</p>
+            <h2>内容导览</h2>
+          </div>
+          <div class="guide-nav">
+            <a class="guide-card" href="./a2a-demo.html">A2A 演示页</a>
+            <a class="guide-card" href="./proof.html">真实运行证明</a>
+            <a class="guide-card" href="./workflow-evidence.html">证据台账</a>
+            <a class="guide-card" href="#positioning">产品定义</a>
+            <a class="guide-card" href="#readme-en">English Overview</a>
+            <a class="guide-card" href="#skill">Skill 能力</a>
+            <a class="guide-card" href="#openapi">接口与接入</a>
+            <a class="guide-card" href="#visuals">叙事结构</a>
+            <a class="guide-card" href="#longform">价值主张</a>
+          </div>
+        </section>
+
+        <section class="section detail-section" id="positioning">
+          <div class="section-head">
+            <p class="section-kicker">Positioning</p>
+            <h2>产品定义</h2>
+          </div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>一句话</h3>
+              <p>
+                我们把 OKX Skills 提供的底层链上能力，封装成 AI 可以直接购买的决策工作流。
+                对调用方 AI 来说，拿到的不是零散技能，而是 policy / trade / exit / watch / machineView。
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>核心能力</h3>
+              <ul>
+                <li>Free Opportunity Scan：免费 shortlist</li>
+                <li>Premium Trade Plan：带 Treasury Policy 的入场方案</li>
+                <li>Premium BYO Thesis Plan：验证外部 AI thesis</li>
+                <li>Premium Exit Plan：分批退出与后续监控</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>本地体验</h3>
+              <pre><code>npm test
+npm run preflight
+npm run premium:demo
+npm run premium:live-demo-thesis</code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section class="section detail-section" id="readme-en">
+          <div class="section-head">
+            <p class="section-kicker">English</p>
+            <h2>English Overview</h2>
+          </div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Positioning</h3>
+              <p>
+                We package OKX Skills into guarded AI decision workflows, so buyers consume a
+                complete result instead of stitching together raw onchain primitives by themselves.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>What Buyers Get</h3>
+              <ul>
+                <li>Free shortlist before payment</li>
+                <li>Policy-gated entry plans</li>
+                <li>Thesis validation for external AI</li>
+                <li>Exit and watch plans after unlock</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>Runtime Shortcuts</h3>
+              <pre><code>npm run premium:live-smoke
+npm run premium:real-payment-thesis-smoke
+npm run premium:live-demo-thesis
+npm run premium:live-demo-trade</code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section class="section detail-section" id="skill">
+          <div class="section-head">
+            <p class="section-kicker">Skill Layer</p>
+            <h2>工作流能力层</h2>
+          </div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>高阶意图</h3>
+              <ul>
+                <li>find_opportunities</li>
+                <li>check_risk_and_prepare_trade</li>
+                <li>prepare_exit_plan</li>
+                <li>track_execution_status</li>
+                <li>buy_premium_research</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>设计原则</h3>
+              <ul>
+                <li>先组合 signal / token / holders / quote，再做建议</li>
+                <li>先返回 Treasury Policy，再决定是否执行</li>
+                <li>所有 premium 结果都要先走 402 / verify / settle</li>
+                <li>同时输出人类说明和 machineView JSON</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>为什么值钱</h3>
+              <p>
+                我们不是卖底层步骤，而是卖决策结果本身。调用方 AI 不用自己补 policy、entry、exit 和 watch。
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section detail-section" id="openapi">
+          <div class="section-head">
+            <p class="section-kicker">Integration</p>
+            <h2>接口与接入</h2>
+          </div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>发现与支持</h3>
+              <ul>
+                <li><code>GET /supported</code>：支付网络和资产能力</li>
+                <li><code>GET /manifest</code>：能力、定价和接入元数据</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>免费入口</h3>
+              <ul>
+                <li><code>GET /opportunities</code>：免费 shortlist，不要求支付</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>Premium 工作流</h3>
+              <ul>
+                <li><code>GET /premium/opportunities</code></li>
+                <li><code>POST /premium/thesis-plan</code></li>
+                <li><code>POST /premium/trade-plan</code></li>
+              </ul>
+              <p>这些接口都会先返回 <code>402 Payment Required</code>，支付完成后再返回结果。</p>
+            </article>
+            <article class="detail-card">
+              <h3>接入方式</h3>
+              <ul>
+                <li>通过 <code>/manifest</code> 做服务发现</li>
+                <li>通过 <code>openapi.yaml</code> 接入标准接口</li>
+                <li>通过 <code>SKILL.md</code> 复用高阶意图</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section detail-section" id="visuals">
+          <div class="section-head">
+            <p class="section-kicker">Narrative</p>
+            <h2>叙事结构</h2>
+          </div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>图 1：总架构图</h3>
+              <p>
+                我们用 Buyer AI → Treasury Guard → OKX Skills / x402 → Result 这条主链路，
+                让读者先看懂我们的角色：我们把能力组织成可购买的工作流。
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>图 2：对照图</h3>
+              <p>
+                我们把 token / market / quote / gateway 和 policy / trade / exit / watch 放在同一屏，
+                让读者直接看到：我们卖的是成品决策，而不是底层拼装过程。
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>图 3：A2A 演示页</h3>
+              <p>
+                我们把请求、支付和结果放到同一屏里，让调用方 AI 的工作流比底层协议更容易理解。
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>关键阅读路径</h3>
+              <ul>
+                <li>先看总架构图</li>
+                <li>再看 A2A 交互链路</li>
+                <li>然后看对照图</li>
+                <li>最后看真实链路和结算 tx</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section detail-section" id="longform">
+          <div class="section-head">
+            <p class="section-kicker">Value</p>
+            <h2>价值主张</h2>
+          </div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>核心结论</h3>
+              <p>
+                我们把 OKX Skills 组织成 AI 愿意付费调用的决策工作流。
+                调用方 AI 不必自己拼技能，就能直接拿到带风控的链上决策与执行结果。
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>为什么成立</h3>
+              <ul>
+                <li>调用方 AI 不会天然拥有稳定的 policy / exit / watch 逻辑</li>
+                <li>它们也不想自己处理 x402 支付、解锁和 machineView 结构</li>
+                <li>所以直接购买“结果”，比自己拼“步骤”更省成本</li>
+              </ul>
+            </article>
+            <article class="detail-card">
+              <h3>商业模式边界</h3>
+              <ul>
+                <li>普通 BYO Thesis：直接购买我们的验证与执行服务</li>
+                <li>白名单 Provider Thesis：平台 20% / Provider 80%</li>
+                <li>当前分账模式：offchain-ledger</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section detail-section" id="proof">
+          <div class="section-head">
+            <p class="section-kicker">Live Proof</p>
+            <h2>证据入口</h2>
+          </div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Direct BYO Thesis</h3>
+              <p class="mono">0x3d3e7f34bb235343d12d4194da36dadf71ab86c2822ca746ab22d97ecfbc2f98</p>
+              <p>这是今天重新跑过的普通 thesis 直购链路，对应的是直接购买我们的验证与执行服务。</p>
+            </article>
+            <article class="detail-card">
+              <h3>Live Provider Thesis 20/80</h3>
+              <p class="mono">0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0</p>
+              <p>这是今天重新跑过的白名单 Provider workflow，同时覆盖平台 20% / Provider 80% 和 live OKX analysis。</p>
+            </article>
+            <article class="detail-card">
+              <h3>Trade / Exit</h3>
+              <p class="mono">0x79e11af955c5f1cb62187c921b679464a0536d516f724b732281aa30034e33b8</p>
+              <p class="mono">0x4fb62e16e0625a6c8a448d35a640b4bab7835de6c81863a877d132fa35fa94db</p>
+              <p>这两条先保留为历史 live 记录，用来证明 trade 和 exit 都曾完成过真实结算。</p>
+            </article>
+            <article class="detail-card">
+              <h3>证据台账</h3>
+              <p>
+                我们把 workflow、命令形态、验证层级和 tx hash 绑定成了一份独立台账，Proof 页只负责展示，台账负责追溯。
+              </p>
+              <p><a href="./workflow-evidence.html">打开证据台账</a></p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Treasury Guard | Live Proof</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell proof-shell">
+      <header class="hero">
+        <a class="back-link" href="./index.html">← 返回展示页</a>
+        <p class="eyebrow">Live Proof</p>
+        <h1>Agent Treasury Guard | 真实链路证明</h1>
+        <p class="hero-copy">
+          这些记录对应 Treasury Guard 当前已经完成的真实支付、真实结算和真实结果返回。
+          我们把调用模式、验证层级和链上交易一起公开，方便读者直接核验。
+        </p>
+        <div class="hero-actions">
+          <a class="primary" href="./workflow-evidence.html">查看证据台账</a>
+          <a class="secondary" href="./workflow-evidence.json">查看 JSON 台账</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Proof Set</p>
+            <h2>四条证据就够了</h2>
+          </div>
+          <div class="proof-grid full-proof-grid">
+            <article class="proof-card proof-card-large">
+              <span class="proof-tag">Direct BYO Thesis</span>
+              <p class="proof-copy">
+                这是今天重新跑过的直购 thesis。它证明普通 thesis 直购不需要 provider split，也能完成真实钱包签名、verify、settle 和结果解锁。
+              </p>
+              <p class="proof-meta">验证层级：rerun-today · 命令：premium:real-payment-thesis-smoke · 资产：USDT</p>
+              <p class="mono mono-link">
+                <a href="https://web3.okx.com/explorer/x-layer/tx/0x3d3e7f34bb235343d12d4194da36dadf71ab86c2822ca746ab22d97ecfbc2f98" target="_blank" rel="noreferrer">
+                  0x3d3e7f34bb235343d12d4194da36dadf71ab86c2822ca746ab22d97ecfbc2f98
+                </a>
+              </p>
+            </article>
+
+            <article class="proof-card proof-card-large">
+              <span class="proof-tag">Live Provider Thesis 20/80</span>
+              <p class="proof-copy">
+                这是今天重新跑过的主链路。它同时证明：白名单 Provider 会进入平台 20% / Provider 80% 模式，而且 `okx-http + x402 + real wallet` 这条链路仍然全 live。
+              </p>
+              <p class="proof-meta">验证层级：rerun-today · 命令：premium:live-demo-thesis · 资产：USDT · adapter：okx-http</p>
+              <p class="mono mono-link">
+                <a href="https://web3.okx.com/explorer/x-layer/tx/0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0" target="_blank" rel="noreferrer">
+                  0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0
+                </a>
+              </p>
+            </article>
+
+            <article class="proof-card proof-card-large">
+              <span class="proof-tag">Trade</span>
+              <p class="proof-copy">
+                这是保留的历史 live 记录。它证明 trade workflow 不只是文档存在，而是之前已经完成过真实结算。
+              </p>
+              <p class="proof-meta">验证层级：historical-workspace-record · 命令形态：premium:real-payment-trade-smoke</p>
+              <p class="mono mono-link">
+                <a href="https://web3.okx.com/explorer/x-layer/tx/0x79e11af955c5f1cb62187c921b679464a0536d516f724b732281aa30034e33b8" target="_blank" rel="noreferrer">
+                  0x79e11af955c5f1cb62187c921b679464a0536d516f724b732281aa30034e33b8
+                </a>
+              </p>
+            </article>
+
+            <article class="proof-card proof-card-large">
+              <span class="proof-tag">Exit</span>
+              <p class="proof-copy">
+                这是保留的历史 live 记录。它证明 exit workflow 也已经完成过真实结算，不是 thesis 单一路径在工作。
+              </p>
+              <p class="proof-meta">验证层级：historical-workspace-record · 命令形态：premium:real-payment-exit-smoke</p>
+              <p class="mono mono-link">
+                <a href="https://web3.okx.com/explorer/x-layer/tx/0x4fb62e16e0625a6c8a448d35a640b4bab7835de6c81863a877d132fa35fa94db" target="_blank" rel="noreferrer">
+                  0x4fb62e16e0625a6c8a448d35a640b4bab7835de6c81863a877d132fa35fa94db
+                </a>
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">What These Records Show</p>
+            <h2>这四条记录覆盖了什么</h2>
+          </div>
+          <div class="guide-nav">
+            <div class="guide-card static-card">
+              普通 BYO Thesis
+              <span>调用方 AI 可以直接向 Treasury Guard 购买验证与执行服务，不需要额外的 Provider 分成。</span>
+            </div>
+            <div class="guide-card static-card">
+              白名单 Provider Thesis
+              <span>外部 Provider 可以保留自己的 thesis，由 Treasury Guard 负责验证、收费和 20% / 80% 条款承接。</span>
+            </div>
+            <div class="guide-card static-card">
+              Trade / Exit Workflow
+              <span>除了 thesis 验证，买入和退出两类 premium workflow 也都有各自独立的真实结算记录。</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">Result Layer</p>
+            <h2>这四条记录最终说明什么</h2>
+          </div>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>可以直接购买</h3>
+              <p>调用方 AI 不必自己拼 OKX Skills，可以直接购买带 Treasury Policy 的高阶结果。</p>
+            </article>
+            <article class="detail-card">
+              <h3>可以真实结算</h3>
+              <p>高价值 workflow 不是 mock 解锁，而是通过 x402 在 X Layer 上完成 verify 和 settle。</p>
+            </article>
+            <article class="detail-card">
+              <h3>可以区分模式</h3>
+              <p>普通 BYO Thesis 和白名单 Provider Thesis 的收费与分账边界是明确公开的。</p>
+            </article>
+            <article class="detail-card">
+              <h3>可以继续调用</h3>
+              <p>返回的不是原始链上数据，而是其他 AI 可以继续消费的 policy / trade / exit / watch 结果。</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

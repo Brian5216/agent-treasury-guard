@@ -1,0 +1,209 @@
+openapi: 3.1.0
+info:
+  title: Agent Treasury Guard Premium API
+  version: 0.1.0
+  description: |
+    A2A paywalled expert service built on top of OKX OnchainOS workflows.
+    The service exposes a free opportunity scan plus premium treasury-policy plans, BYO-thesis validation, and staged exits behind x402.
+    Plain BYO-thesis requests are direct Guard services; 20/80 revenue sharing only applies when approved provider metadata includes a payout address.
+    Standard flow: request -> 402 invoice -> sign payment payload -> retry with X-PAYMENT -> verify -> settle -> unlock.
+servers:
+  - url: http://127.0.0.1:8788
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: Service is up
+  /supported:
+    get:
+      summary: x402 supported networks and assets
+      parameters:
+        - in: query
+          name: refresh
+          schema:
+            type: boolean
+          description: Force-refresh the upstream OKX supported-network snapshot instead of using the in-memory cache
+      responses:
+        "200":
+          description: Supported payment networks
+  /manifest:
+    get:
+      summary: Service manifest for AI agents
+      responses:
+        "200":
+          description: Service capabilities, pricing, discovery URLs, and marketplace terms
+  /opportunities:
+    get:
+      summary: Free opportunity scan for candidate discovery
+      parameters:
+        - in: query
+          name: chain
+          schema:
+            type: string
+            default: base
+        - in: query
+          name: budgetUsd
+          schema:
+            type: number
+            default: 1000
+        - in: query
+          name: riskProfile
+          schema:
+            type: string
+            default: balanced
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 3
+      responses:
+        "200":
+          description: Free shortlist and next paid-call hints
+  /premium/opportunities:
+    get:
+      summary: Buy an optional premium opportunity deep scan
+      parameters:
+        - in: query
+          name: chain
+          schema:
+            type: string
+            default: base
+        - in: query
+          name: budgetUsd
+          schema:
+            type: number
+            default: 1000
+        - in: query
+          name: riskProfile
+          schema:
+            type: string
+            default: balanced
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 3
+      responses:
+        "200":
+          description: Paid premium result
+        "402":
+          description: Payment required
+          headers:
+            X-PAYMENT:
+              description: Attach a valid x402 payment payload on retry
+              schema:
+                type: string
+  /premium/thesis-plan:
+    post:
+      summary: Buy a BYO-thesis validation and execution plan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [side, chain, budgetUsd, thesis]
+              properties:
+                side:
+                  type: string
+                  enum: [buy, sell]
+                symbol:
+                  type: string
+                address:
+                  type: string
+                chain:
+                  type: string
+                budgetUsd:
+                  type: number
+                riskProfile:
+                  type: string
+                stable:
+                  type: string
+                walletAddress:
+                  type:
+                    - string
+                    - "null"
+                thesis:
+                  type: string
+                thesisSource:
+                  type: string
+                thesisConfidence:
+                  type: number
+                providerId:
+                  type: string
+                  description: Optional approved-provider identifier. Include only for marketplace revenue share.
+                providerName:
+                  type: string
+                  description: Optional provider display name for marketplace workflows.
+                providerKind:
+                  type: string
+                  description: Optional provider mode. Use `external` only for approved provider theses; omit it for plain BYO-thesis validation.
+                providerPayoutAddress:
+                  type: string
+                  description: Required for 20/80 provider revenue share. Omit for direct BYO-thesis calls.
+                providerUrl:
+                  type: string
+                thesisBullets:
+                  oneOf:
+                    - type: string
+                    - type: array
+                      items:
+                        type: string
+      responses:
+        "200":
+          description: Paid BYO-thesis premium result
+        "402":
+          description: Payment required
+          headers:
+            X-PAYMENT:
+              description: Attach a valid x402 payment payload on retry
+              schema:
+                type: string
+  /premium/trade-plan:
+    post:
+      summary: Buy a premium guarded trade or exit plan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [side, chain, budgetUsd]
+              properties:
+                side:
+                  type: string
+                  enum: [buy, sell]
+                symbol:
+                  type: string
+                address:
+                  type: string
+                chain:
+                  type: string
+                budgetUsd:
+                  type: number
+                riskProfile:
+                  type: string
+                stable:
+                  type: string
+                walletAddress:
+                  type:
+                    - string
+                    - "null"
+      responses:
+        "200":
+          description: Paid premium result
+        "402":
+          description: Payment required
+          headers:
+            X-PAYMENT:
+              description: Attach a valid x402 payment payload on retry
+              schema:
+                type: string
+components:
+  securitySchemes:
+    xPaymentHeader:
+      type: apiKey
+      in: header
+      name: X-PAYMENT

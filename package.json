@@ -1,0 +1,48 @@
+{
+  "name": "agent-treasury-guard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "High-level OKX OnchainOS workflow skill for research, risk checks, and execution planning.",
+  "bin": {
+    "treasury-guard": "./src/cli.js",
+    "treasury-guard-server": "./src/server.js",
+    "treasury-guard-client": "./src/client.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "scan": "node ./src/cli.js find-opportunities --format markdown",
+    "entry": "node ./src/cli.js prepare-trade --side buy --format markdown",
+    "exit": "node ./src/cli.js prepare-exit-plan --format markdown",
+    "thesis": "node ./src/cli.js prepare-thesis-plan --side buy --format markdown",
+    "track": "node ./src/cli.js track-execution --format markdown",
+    "premium:server": "node ./src/server.js",
+    "premium:free-scan": "node ./src/client.js request-free-opportunities --server http://127.0.0.1:8788 --chain base --format markdown",
+    "premium:scan": "node ./src/client.js request-opportunities --server http://127.0.0.1:8788 --chain base --format markdown",
+    "premium:trade": "node ./src/client.js request-trade-plan --server http://127.0.0.1:8788 --side buy --symbol BRETT --chain base --budget-usd 1000 --format markdown",
+    "premium:exit": "node ./src/client.js request-exit-plan --server http://127.0.0.1:8788 --symbol PEPE --chain ethereum --budget-usd 1000 --format markdown",
+    "premium:thesis": "node ./src/client.js request-thesis-plan --server http://127.0.0.1:8788 --side buy --symbol BRETT --chain base --budget-usd 1000 --thesis \"Momentum and whale support still justify a guarded entry.\" --thesis-source external-ai --format markdown",
+    "premium:live-smoke": "node ./src/live-smoke.js",
+    "preflight": "node ./src/preflight.js",
+    "preflight:json": "node ./src/preflight.js --format json",
+    "premium:real-payment-smoke": "node ./src/real-payment-smoke.js",
+    "premium:real-payment-trade-smoke": "TREASURY_GUARD_REAL_SMOKE_MODE=trade node ./src/real-payment-smoke.js",
+    "premium:real-payment-exit-smoke": "TREASURY_GUARD_REAL_SMOKE_MODE=exit node ./src/real-payment-smoke.js",
+    "premium:real-payment-thesis-smoke": "TREASURY_GUARD_REAL_SMOKE_MODE=thesis node ./src/real-payment-smoke.js",
+    "premium:live-demo-trade": "TREASURY_GUARD_LIVE_MODE=trade node ./src/live-demo.js",
+    "premium:live-demo-exit": "TREASURY_GUARD_LIVE_MODE=exit node ./src/live-demo.js",
+    "premium:live-demo-thesis": "TREASURY_GUARD_LIVE_MODE=thesis node ./src/live-demo.js",
+    "premium:demo": "node ./src/demo.js",
+    "premium:demo-trade": "node ./src/demo-trade.js",
+    "premium:demo-exit": "node ./src/demo-exit.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@x402/core": "^2.6.0",
+    "@x402/evm": "^2.6.0",
+    "@x402/fetch": "^2.6.0",
+    "viem": "^2.47.0"
+  }
+}

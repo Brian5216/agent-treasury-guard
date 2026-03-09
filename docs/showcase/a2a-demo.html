@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Treasury Guard | A2A Workflow</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell a2a-shell">
+      <header class="hero">
+        <a class="back-link" href="./index.html">← 返回展示页</a>
+        <p class="eyebrow">A2A Workflow</p>
+        <h1>Agent Treasury Guard | A2A 交互链路</h1>
+        <p class="hero-copy">
+          Buyer AI 发起高价值请求，Treasury Guard 返回 402 invoice，支付完成后再解锁带风控的结果。
+          这是我们交付给其他 AI 的标准调用路径。
+        </p>
+        <div class="hero-actions">
+          <a class="primary" href="#conversation">看对话发起</a>
+          <a class="secondary" href="#payment-flow">看支付解锁</a>
+          <a class="secondary" href="#result-view">看结果返回</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="section" id="conversation">
+          <div class="section-head">
+            <p class="section-kicker">Conversation</p>
+            <h2>1. Buyer AI 发起高价值请求</h2>
+          </div>
+          <div class="demo-triptych">
+            <article class="chat-panel">
+              <div class="chat-thread">
+                <div class="message buyer">
+                  <div class="message-meta">Buyer AI</div>
+                  <div class="bubble">
+                    请验证这个 thesis：BRETT 在 Base 上是否还适合 1000U 的 guarded entry，
+                    并给我带风控的执行方案。
+                  </div>
+                </div>
+                <div class="message guard">
+                  <div class="message-meta">Treasury Guard</div>
+                  <div class="bubble">
+                    我会先调用 OKX live analysis，检查 policy、route 和风险，再返回一个可支付的 premium invoice。
+                  </div>
+                </div>
+                <div class="message buyer">
+                  <div class="message-meta">Buyer AI</div>
+                  <div class="bubble">
+                    如果这是一条白名单 Provider thesis，请把 provider 和 revenue split 一并带回来。
+                  </div>
+                </div>
+                <div class="message guard">
+                  <div class="message-meta">Treasury Guard</div>
+                  <div class="bubble">
+                    可以。我们会把 provider metadata、20/80 条款、支付资产和 settlement tx 一起返回。
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="summary-panel">
+              <p class="summary-label">Provider Thesis</p>
+              <h3>Brett Signal AI</h3>
+              <ul class="summary-list">
+                <li>chain: Base</li>
+                <li>budget: 1000 USDC</li>
+                <li>side: buy</li>
+                <li>provider split: 20% / 80%</li>
+              </ul>
+              <p class="summary-copy">
+                调用方 AI 可以保留自己的判断层，再把 thesis 交给 Treasury Guard 做验证、收费和结果组织。
+              </p>
+            </article>
+
+            <article class="summary-panel accent">
+              <p class="summary-label">交互结构</p>
+              <h3>前台像对话，后台是 A2A</h3>
+              <ul class="summary-list">
+                <li>先提交 thesis 或 premium request</li>
+                <li>再走 402 / 支付 / 解锁</li>
+                <li>最后返回 policy / trade / exit / watch</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="payment-flow">
+          <div class="section-head">
+            <p class="section-kicker">Payment Flow</p>
+            <h2>2. x402 支付与结果解锁</h2>
+          </div>
+          <div class="protocol-grid">
+            <article class="step-card">
+              <span class="step-number">01</span>
+              <h3>premium request</h3>
+              <p>Buyer AI 以 thesis-plan 的方式请求高价值 workflow。</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">02</span>
+              <h3>402 invoice</h3>
+              <p>返回 <code>402 Payment Required</code>，而不是直接暴露结果。</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">03</span>
+              <h3>x402 payment</h3>
+              <p>accepted assets: <strong>USDG / USDT / USDC</strong>，chainIndex: <strong>196</strong></p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">04</span>
+              <h3>verify</h3>
+              <p>校验支付 payload 是否匹配 invoice 和 payer。</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">05</span>
+              <h3>settle</h3>
+              <p class="mono">0x06c9591628e80336d06de69c38f5ee3b9d53c030476a947f6d1a24a6fdbf7be0</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">06</span>
+              <h3>unlock result</h3>
+              <p>支付成功后，才返回带 policy / watch / machineView 的结果。</p>
+            </article>
+          </div>
+          <div class="inline-note">
+            <strong>这一步说明的不是支付协议细节，</strong>
+            而是高价值 workflow 为什么可以先付费，再解锁。
+          </div>
+        </section>
+
+        <section class="section" id="result-view">
+          <div class="section-head">
+            <p class="section-kicker">Unlocked Result</p>
+            <h2>3. 解锁后返回的决策工作流</h2>
+          </div>
+          <div class="result-grid">
+            <article class="result-panel hero-result">
+              <p class="summary-label">Result Summary</p>
+              <h3>Guarded Thesis Plan</h3>
+              <div class="metric-grid">
+                <div class="metric-card">
+                  <span class="metric-label">Decision</span>
+                  <strong>proceed</strong>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-label">Policy</span>
+                  <strong>pass</strong>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-label">Risk</span>
+                  <strong>74 / 100</strong>
+                </div>
+                <div class="metric-card">
+                  <span class="metric-label">Provider</span>
+                  <strong>Brett Signal AI</strong>
+                </div>
+              </div>
+              <div class="code-strip">
+                route: Base -> best quote | provider split: platform 20% / provider 80%
+              </div>
+            </article>
+
+            <article class="result-panel">
+              <p class="summary-label">Watch Plan</p>
+              <h3>返回的不是原始行情</h3>
+              <ul class="summary-list">
+                <li>若 whale 流出放大，则降级为 reduce-size</li>
+                <li>若 price impact 上升，则重新询价</li>
+                <li>若 thesis 证据减弱，则进入 exit review</li>
+              </ul>
+            </article>
+
+            <article class="result-panel">
+              <p class="summary-label">machineView</p>
+              <h3>返回 AI 可续接的结构</h3>
+              <pre><code>{
+  "intent": "prepare-thesis-plan",
+  "nextCalls": [
+    "request-trade-plan",
+    "request-exit-plan"
+  ],
+  "policy": "pass",
+  "decision": "proceed"
+}</code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <p class="section-kicker">What Buyers Get</p>
+            <h2>4. 调用方 AI 最终拿到什么</h2>
+          </div>
+          <div class="guide-nav">
+            <div class="guide-card static-card">
+              一个可付费的入口
+              <span>调用方 AI 可以直接请求 premium workflow，而不是自己重组底层技能。</span>
+            </div>
+            <div class="guide-card static-card">
+              一个可结算的结果
+              <span>高价值请求会先返回 402 invoice，支付完成后再解锁完整结果。</span>
+            </div>
+            <div class="guide-card static-card">
+              一个可续接的结构
+              <span>返回结果同时适合人读，也适合其他 AI 继续消费 machineView。</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
