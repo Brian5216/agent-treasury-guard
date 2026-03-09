@@ -2,6 +2,10 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
+[![Node >= 20](https://img.shields.io/badge/node-%3E%3D20-0f766e)](./package.json)
+[![x402 Ready](https://img.shields.io/badge/x402-ready-1d4ed8)](./docs/live-proof.md)
+[![OKX Skills Based](https://img.shields.io/badge/OKX%20Skills-based-f59e0b)](./SKILL.md)
+
 Built on OKX Skills, sold as AI decision workflows.
 
 Quick links:
