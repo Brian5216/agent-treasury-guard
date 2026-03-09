@@ -113,6 +113,22 @@ curl -X POST http://127.0.0.1:8788/premium/thesis-plan \
 ```
 
 If no payment is attached, the service returns a `402` plus `paymentRequirements`.
+The first response looks like this:
+
+```json
+{
+  "error": "payment-required",
+  "message": "Attach X-PAYMENT to unlock this workflow.",
+  "paymentRequirements": [
+    {
+      "scheme": "exact",
+      "network": "xlayer",
+      "asset": "USDT"
+    }
+  ]
+}
+```
+
 After the caller signs and retries with `X-PAYMENT`, Treasury Guard returns a structured result with:
 
 - `policy`
@@ -120,6 +136,29 @@ After the caller signs and retries with `X-PAYMENT`, Treasury Guard returns a st
 - `execution`
 - `watch`
 - `machineView`
+
+The unlocked shape is intentionally compact:
+
+```json
+{
+  "decision": {
+    "action": "proceed",
+    "confidence": "medium"
+  },
+  "policy": {
+    "status": "pass"
+  },
+  "execution": {
+    "route": "best-quote"
+  },
+  "watch": {
+    "nextReviewInMinutes": 15
+  },
+  "machineView": {
+    "nextCall": "track-execution"
+  }
+}
+```
 
 The package ships with two adapters:
 

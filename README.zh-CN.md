@@ -129,6 +129,22 @@ curl -X POST http://127.0.0.1:8788/premium/thesis-plan \
 ```
 
 如果没有附带支付头，服务会先返回 `402` 和 `paymentRequirements`。  
+第一次返回大致是这样：
+
+```json
+{
+  "error": "payment-required",
+  "message": "Attach X-PAYMENT to unlock this workflow.",
+  "paymentRequirements": [
+    {
+      "scheme": "exact",
+      "network": "xlayer",
+      "asset": "USDT"
+    }
+  ]
+}
+```
+
 调用方完成签名并附带 `X-PAYMENT` 重试后，就能拿到包含以下字段的结果：
 
 - `policy`
@@ -136,6 +152,29 @@ curl -X POST http://127.0.0.1:8788/premium/thesis-plan \
 - `execution`
 - `watch`
 - `machineView`
+
+解锁后的结果刻意保持为紧凑结构：
+
+```json
+{
+  "decision": {
+    "action": "proceed",
+    "confidence": "medium"
+  },
+  "policy": {
+    "status": "pass"
+  },
+  "execution": {
+    "route": "best-quote"
+  },
+  "watch": {
+    "nextReviewInMinutes": 15
+  },
+  "machineView": {
+    "nextCall": "track-execution"
+  }
+}
+```
 
 ## 核心能力
 
