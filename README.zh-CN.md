@@ -9,6 +9,14 @@ OKX 提供底层链上技能，Treasury Guard 把它们组织成 AI 愿意付费
 
 当 Treasury Guard 以托管服务方式部署时，调用方 AI 不需要自己申请 OKX Market / Trade 凭证，也不需要自己重做那套链上编排。运营方只需要把 OKX 适配层和收款链路配置一次，下游 AI 就可以通过 `manifest + OpenAPI + x402` 直接购买结果。
 
+```mermaid
+flowchart LR
+  A["调用方 AI"] -->|发现服务 + 发起请求| B["Treasury Guard"]
+  B -->|token / market / quote / gateway| C["OKX Skills"]
+  B -->|402 / verify / settle| D["X Layer 上的 x402"]
+  B -->|policy / trade / exit / watch / machineView| E["带风控的结果"]
+```
+
 ## 快速入口
 
 - [工作流能力层](./SKILL.md)

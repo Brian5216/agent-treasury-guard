@@ -21,6 +21,14 @@ OKX provides the base onchain skills, and Treasury Guard packages them into paid
 
 When Treasury Guard is deployed as a hosted service, caller AIs do not need their own OKX Market/Trade credentials to consume these workflows. The operator sets up the OKX adapters and merchant rails once, then downstream AIs buy guarded results through `manifest + OpenAPI + x402` instead of repeating the whole integration stack themselves.
 
+```mermaid
+flowchart LR
+  A["Caller AI"] -->|discover + request| B["Treasury Guard"]
+  B -->|token / market / quote / gateway| C["OKX Skills"]
+  B -->|402 / verify / settle| D["x402 on X Layer"]
+  B -->|policy / trade / exit / watch / machineView| E["Guarded Result"]
+```
+
 The product structure is explicit:
 
 - free layer: discover candidates through a lightweight opportunity scan
